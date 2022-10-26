@@ -1,0 +1,143 @@
+<l-status-show show="{{show}}" custom="{{true}}">
+    <image style="width: 150rpx;height: 150rpx;" src="/pages/images/wx_no_list.png" />
+    <view style="margin-top: 20rpx;font-size: 45rpx;margin-left: 20rpx;">暂无记录~~~~</view>
+    <image src="/pages/images/wx_add.png"
+    style="width: 80rpx;height: 80rpx;position: absolute;top: 1200rpx; left: 650rpx;" bindtap="addFamilyHistory">
+  </image>
+  </l-status-show>
+<!-- 有记录则显示记录 =====> 主布局 -->
+<view style="width: 100%;">
+  <!-- 家族史标栏头布局 -->
+  <view style="flex-direction: row;display: flex;box-sizing: border-box;padding:10rpx 0 10rpx 0; margin-left: 20rpx;">
+    <view class="information_img"></view>
+    <view class="information_text">病例史</view>
+  </view>
+  <!-- 家族遗传史列表子项 -->
+  <view style="margin-top: 20rpx;" >
+    <block wx:for="{{list}}" wx:for-item="val" wx:key="index">
+      <view bindtap="lookFamilyHistory" style="margin-top: 15rpx;" data-position="{{val._id}}">
+        <l-card type="primary" plaintext="{{true}}" title="遗传人：{{val.name}}">
+          <view style="flex-direction: row;display: flex;">
+            <view>历史病例：</view>
+            <text>{{val.type}}</text>
+          </view>
+        </l-card>
+      </view>
+    </block>
+  </view>
+  <image src="/pages/images/wx_add.png"
+    style="width: 80rpx;height: 80rpx;position: absolute;top: 1200rpx; left: 650rpx;" bindtap="addFamilyHistory">
+  </image>
+</view>
+
+<!-- 点击添加按钮弹出添加家族史的表单 -->
+<l-popup show="{{formShow}}" content-align="center" l-panel-class="panel">
+  <!-- 体检报告信息栏 -->
+  <view style="flex-direction: row;display: flex;box-sizing: border-box;padding:10rpx 0 10rpx 0;">
+    <view class="information_img"></view>
+    <view class="information_text">病例史填写</view>
+  </view>
+  <!-- 上传图片控件 -->
+  <l-image-picker custom="{{true}}" l-class="testOne" l-item-class="testOne"count="1"bind:linchange="avatar_pick">
+      <view>
+        <image src="{{list[0].avatar}}" style="width: 230rpx; height: 230rpx;" />
+      </view>
+    </l-image-picker>
+  <!-- 家族史填写表单 -->
+  <view style="border-radius: 15rpx;">
+    <l-form name="family" l-form-btn-class="l-form-btn-class" bind:linsubmit="addSubmit">
+      <l-form-item label="姓名:" name="familyName">
+        <l-input id="familyName" value="{{peopleName}}" hide-label show-row="{{false}}" />
+      </l-form-item>
+
+      <l-form-item label="年龄:" name="familyAge">
+        <l-input id="familyAge" value="{{peopleAge}}" hide-label show-row="{{false}}" />
+      </l-form-item>
+
+      <l-form-item label="关系:" name="familyRelation">
+        <l-input id="familyRelation" value="{{peopleRelation}}" hide-label show-row="{{false}}" />
+      </l-form-item>
+
+      <l-form-item label="性别:" name="familySex">
+        <l-input id="familySex" value="{{peopleSex}}" hide-label show-row="{{false}}" />
+      </l-form-item>
+
+      <l-form-item label="病例史:" name="familyCaseHistory">
+        <l-input id="familyCaseHistory" value="{{peopleCaseHistory}}" hide-label show-row="{{false}}" />
+      </l-form-item>
+
+      <l-form-item label="生日:" name="familyBrithday">
+        <l-input id="familyBrithday" value="{{peopleBrithday}}" hide-label show-row="{{false}}" />
+      </l-form-item>
+
+      <!-- 使用插槽的方式将提交和重置按钮插入到表单中 -->
+      <view slot="submit" style="margin-top: 20rpx;">
+        <l-button>提交</l-button>
+      </view>
+      <view slot="reset" style="margin-top: 20rpx;">
+        <l-button type="default" plain>重置</l-button>
+      </view>
+    </l-form>
+  </view>
+</l-popup>
+
+
+
+<!-- 显示家族史详情 -->
+<!-- <l-popup show="{{shwoPopWindow}}" content-align="center">
+  <view style="margin-top: 20rpx; width: 600rpx;" bindtap="lookFamilyHistory">
+    <l-card type="primary" plaintext="{{true}}">
+      <view style="flex-direction: row;display: flex;">
+        <view>遗传病：</view>
+        <text>{{popType}}</text>
+      </view>
+      <view style="flex-direction: row;display: flex;">
+        <view>遗传人：</view>
+        <text>{{popName}}</text>
+      </view>
+      <view style="flex-direction: row;display: flex;">
+        <view>关系：</view>
+        <text>{{popRelation}}</text>
+      </view>
+      <view style="flex-direction: row;display: flex;">
+        <view>遗传人年龄：</view>
+        <text>{{popAge}}</text>
+      </view>
+      <view style="flex-direction: row;display: flex;">
+        <view>遗传人出生日期：</view>
+        <text>{{popBrithday}}</text>
+      </view>
+    </l-card>
+  </view>
+</l-popup> -->
+
+<l-popup show="{{shwoPopWindow}}" content-align="center" l-panel-class="panel">
+  <image src="{{popImg}}"></image>
+  <view style="border-radius: 15rpx;">
+    <l-form name="family" l-form-btn-class="l-form-btn-class">
+      <l-form-item label="遗传病:" name="familyName">
+        <l-input id="familyName" value="{{popType}}" hide-label show-row="{{false}}" />
+      </l-form-item>
+
+      <l-form-item label="年龄:" name="familyAge">
+        <l-input id="familyAge" value="{{popAge}}" hide-label show-row="{{false}}" />
+      </l-form-item>
+
+      <l-form-item label="关系:" name="familyRelation">
+        <l-input id="familyRelation" value="{{popRelation}}" hide-label show-row="{{false}}" />
+      </l-form-item>
+
+      <l-form-item label="出生日期:" name="familyBrithday">
+        <l-input id="familyBrithday" value="{{popBrithday}}" hide-label show-row="{{false}}" />
+      </l-form-item>
+
+      <!-- 使用插槽的方式将提交和重置按钮插入到表单中 -->
+      <!-- <view slot="submit" style="margin-top: 20rpx;">
+        <l-button>提交</l-button>
+      </view>
+      <view slot="reset" style="margin-top: 20rpx;">
+        <l-button type="default" plain>重置</l-button>
+      </view> -->
+    </l-form>
+  </view>
+</l-popup>

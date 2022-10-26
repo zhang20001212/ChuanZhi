@@ -1,0 +1,138 @@
+.l_btn_class {
+  position: relative;
+  top: 15rpx;
+  left: 10rpx;
+}
+
+.tag {
+  position: relative;
+  top: 10rpx;
+  margin-right: 10rpx;
+}
+
+.btn_bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+/* 卡片标题样式 */
+.title {
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+
+
+/* 套餐详情总体样式 */
+.medical_details {
+  width: 100%;
+  height: 100rpx;
+  margin-top: 25rpx;
+  background-color: white;
+}
+
+/* 图片样式 */
+.t_img {
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+}
+
+/* 套餐详情文字文字样式 */
+.t_details {
+  font-size: 35rpx;
+  line-height: 100rpx;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: initial;
+  margin-left: 5rpx;
+}
+
+/* 三文字父布局整体样式 */
+.name {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+/* 三个文字样式 */
+.name_1 {
+  color: black;
+  font-size: 30rpx;
+}
+
+/* 竖线样式 */
+.common {
+  font-size: 50rpx;
+  color: gray;
+  margin-left: 70rpx;
+  margin-right: 70rpx;
+  margin-bottom: 10rpx;
+}
+
+.projectName {
+  width: 200rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  /* background: chartreuse; */
+  text-align: center;
+}
+
+.projectDetails {
+  width: 200rpx;
+  margin-left: 80rpx;
+  text-align: center;
+  /* background: cadetblue; */
+}
+
+.title {
+  margin-top: 20rpx;
+  /* background-color: greenyellow; */
+  text-align: center;
+}
+
+.projectInter {
+  width: 200rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  /* background: gray; */
+  margin-left: 60rpx;
+  text-align: center;
+}
+
+.title_slot {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.title_name {
+  margin-left: 50rpx;
+  width: 90rpx;
+}
+
+.click {
+  background: rgb(243, 242, 247);
+  /* background:linear-gradient(to right, #ead6ee, #a0f1ea) */
+}
+
+.no_click {
+  background: white;
+}
+
+.show{
+  display: block;
+  width: 20rpx; 
+  height: 20rpx; 
+  position: absolute;
+  left: 320rpx;
+  margin-top: 10rpx;
+}
+.no{
+  display: none;
+}

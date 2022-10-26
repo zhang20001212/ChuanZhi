@@ -1,0 +1,114 @@
+<!-- <!-- <view wx:if="{{can_getuserinfo==0}}">
+<text>授权信息</text>
+<text>\n</text>
+<text>\n</text>
+<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+<view wx:else>请升级微信版本</view>
+</view> -->
+<!-- <button  open-type='getUserInfo'  bindgetuserinfo="onGotUserInfo" > </button> -->
+<!-- <button bindtap="login">登录</button>
+<button bindtap="checksession">登录是否过期</button>
+<button open-type="getUserInfo" bindgetuserinfo="info">点击授权</button>
+<text>{{city}}</text>
+<text>{{country}}</text>
+<text>{{nickName}}</text>
+<text>{{province}}</text> -->
+<!-- 流程顺序 -->
+<view class="step" style="width: 100%;position: fixed; top: 0rpx;margin-bottom: 20rpx; background: white; z-index: 1;">
+  <l-steps active-index="2">
+    <l-step title="套餐选择"></l-step>
+    <l-step title="立即预约"></l-step>
+    <l-step title="提交预约"></l-step>
+    <l-step title="预约成功"></l-step>
+  </l-steps>
+</view>
+<scroll-view scroll-y style="margin-top: 100rpx;width: 100%;">
+  <!-- 预约套餐详情头布局 -->
+  <l-card l-title-class="title" l-img-class="img" type="cover" image="{{newImg}}" title="{{newTitle}}"
+    image-mode="aspectFit">
+    <view class="content">
+      {{newDetails}}
+    </view>
+    <view style=" display: flex; flex-direction: row; justify-content: flex-start; margin-top: 10rpx;">
+      <l-tag l-class="tag" plain="{{true}}" shape="square" size="mini" type="reading">{{newSex}}</l-tag>
+      <l-tag l-class="tag" plain="{{true}}" shape="square" size="mini" type="reading">{{newAge}}</l-tag>
+    </view>
+  </l-card>
+
+  <!-- 预约须知 -->
+  <view class="medical_notice" bindtap="lookNotice">
+    <image class="notice_img" src="/pages/images/wx_medical_notice.png"></image>
+    <text class="notice_details">预约须知</text>
+    <image class="notice_img_next" src="/pages/images/wx_notice_next.png"></image>
+  </view>
+
+  <view style="background: rgb(243, 242, 247);width: 100%;height: 1rpx;"></view>
+  <!-- 体检人信息 -->
+  <view
+    style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding: 20rpx 10rpx 20rpx 10rpx">
+    <view class="information_img"></view>
+    <view class="information_text">体检人信息</view>
+  </view>
+  <view style="background: rgb(243, 242, 247);width: 100%;height: 1rpx;"></view>
+  <!-- 表单 -->
+  <l-form name="people" l-form-btn-class="l-form-btn-class" bind:linsubmit="submit">
+    <l-form-item name="peopleName">
+      <l-input label="体检人:" clear="{{true}}" id="peopleName" value="{{people.name}}" required="{{true}}"
+        show-row="{{false}}" placeholder="请输入姓名" bind:linblur="getName" />
+    </l-form-item>
+
+    <l-form-item name="peopleGender">
+      <view style=" display: flex; flex-direction: row; justify-content: flex-start;">
+        <l-input label="性别:" id="peopleGender" value="{{gender}}" required="{{true}}" show-row="{{false}}"
+          placeholder="请选择性别" />
+        <radio-group style="margin-top: 20rpx;position: relative; left: 80rpx; width: 300rpx;" name="gender"
+          bindchange="sex">
+          <radio value="男" style="margin-right: 10rpx;">男</radio>
+          <radio value="女">女</radio>
+        </radio-group>
+      </view>
+    </l-form-item>
+
+    <l-form-item name="peoplePhoneNumber">
+      <view style=" display: flex; flex-direction: row; justify-content: flex-start;">
+        <l-input id="peoplePhoneNumber" label="手机号:" value="{{people.phone}}" required="{{true}}" show-row="{{false}}"
+          placeholder="请输入手机号" rules="{{phoneRules}}" bind:linblur="getPhone" />
+        <l-button l-class="l_btn_class" type="default" plain="{{true}}" loading="{{load}}" size='mini' wx:if="{{send}}"
+          bind:lintap="sendCode">发送验证码</l-button>
+        <l-button l-class="l_btn_class" type="default" plain="{{true}}" size='mini' wx:else disabled="{{true}}">
+          {{seconds}}s后重试</l-button>
+      </view>
+    </l-form-item>
+    <l-form-item name="peoplePhoneCode">
+      <l-input id="peoplePhoneCode" label="验证码:" value="{{people.code}}" required="{{true}}" show-row="{{false}}"
+        placeholder="请输入验证码" />
+    </l-form-item>
+
+    <l-form-item name="peopleIdCard">
+      <l-input id="peopleIdCard" label="身份证号:" value="{{people.idcard}}" required="{{true}}" show-row="{{false}}"
+        placeholder="请输入身份证号" bind:linblur="getIdcard" />
+    </l-form-item>
+
+    <l-form-item name="peopleMedicalTime">
+      <view style="display: flex; flex-direction: row; justify-content: flex-start;" bindtap="seRiLi">
+        <l-input label="时间" id="peopleMedicalTime" value="{{date}}" show-row="{{false}}" required="{{true}}"
+          placeholder="请选择预约时间" />
+        <!-- <l-button  bind:lintap="seRiLi">日历</l-button> -->
+        <image src="../images/wx_calendar.png"
+          style="width: 60rpx;height: 60rpx; position: relative; top: 15rpx;left: 80rpx;"></image>
+      </view>
+    </l-form-item>
+
+    <view slot="submit" style="position:fixed;bottom: 0; width: 100%;">
+      <l-button l-class="btn_bottom" size="long">提交预约</l-button>
+    </view>
+  </l-form>
+</scroll-view>
+
+<l-calendar show='{{showCan}}' bind:linselect="select"></l-calendar>
+<l-loading></l-loading>
+<l-message content="{{content}}"></l-message>
+
+
+
+<!-- <l-calendar show='{{true}}' formatter="{{ formatter }}" show-confirm="{{true}}"></l-calendar> -->

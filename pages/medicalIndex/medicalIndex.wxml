@@ -1,0 +1,35 @@
+<!-- 流程顺序 -->
+<view class="step" style="width: 100%;position: fixed; top: 0rpx; background: white; z-index: 1;">
+  <l-steps active-index="0">
+    <l-step l-step-class="testcon" title="套餐选择"></l-step>
+    <l-step title="立即预约"></l-step>
+    <l-step title="提交预约"></l-step>
+    <l-step title="预约成功"></l-step>
+  </l-steps>
+</view>
+
+<scroll-view scroll-y style="margin-top: 100rpx; z-index: -1; height: 100%;">
+  <l-loading></l-loading>
+  <block wx:for="{{list}}" wx:key="index" wx:for-item="val">
+    <view style="margin-top: 20rpx;" bindtap="reserve"  data-index="{{index}}" data-id="{{val.id}}" data-neirong="{{val.name}}" data-xiangqing="{{val.remark}}" data-sex="{{val.sex}}" data-age="{{val.age}}" data-img="{{val.img}}" data-group="{{val.checkGroups}}">
+      <!-- cover -->
+      <l-card l-title-class="title" l-img-class="img" type="primary" image="{{val.img}}"
+        title="套餐名称：{{val.name}}" image-mode="aspectFit">
+        <!-- 此处绑定catchtap 阻止事件冒泡 加上hover-stop-propagation属性 -->
+        <l-collapse hover-stop-propagation catchtap="prevent_reserve" type="normal">
+          <l-collapse-item l-title-class="content" l-body-class="content_1" custom-title="{{true}}">
+              <view slot="title" class="title_slot">套餐简介：{{val.remark}}</view>
+              {{val.remark}}
+          </l-collapse-item>
+        </l-collapse>
+        <view style=" display: flex; flex-direction: row; justify-content: flex-start; margin-top: 10rpx;">
+          <l-tag l-class="tag" plain="{{true}}" shape="square" size="mini" type="reading">{{val.sex}}</l-tag>
+          <l-tag l-class="tag" plain="{{true}}" shape="square" size="mini" type="reading">{{val.age}}</l-tag>
+        </view>
+      </l-card>
+    </view>
+  </block>
+</scroll-view>
+
+
+<l-message content="{{content}}"></l-message>

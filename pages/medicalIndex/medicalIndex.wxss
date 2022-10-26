@@ -1,0 +1,36 @@
+/* 卡片标题样式 */
+.title {
+  width: 400rpx;
+  margin-top: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.content {
+  width: 400rpx;
+  position: relative;
+  margin-top: 10rpx;
+  right: 10rpx;
+}
+.content_1{
+  position: relative;
+  right: 10rpx;
+}
+
+.tag {
+  position: relative;
+  top: 10rpx;
+  margin-right: 10rpx;
+}
+
+.title_slot{
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+

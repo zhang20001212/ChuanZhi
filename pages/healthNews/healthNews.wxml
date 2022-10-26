@@ -1,0 +1,16 @@
+<view
+  style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding: 20rpx 10rpx 20rpx 10rpx;margin-bottom: 10rpx;margin-top: 10rpx;">
+  <view class="information_img"></view>
+  <view class="information_text">每日健康</view>
+</view>
+<block wx:for="{{news}}" wx:key="index" wx:for-item="val">
+  <view style="margin-bottom:20rpx;" bindtap="toDetails" data-url="{{val.url}}">
+    <l-card type="cover" image="{{val.picUrl}}" image-mode="aspectFit" title="{{val.title}}">
+      <view class="content">
+        {{val.description}}
+      </view>
+    </l-card>
+  </view>
+</block>
+<l-dialog show="{{show}}" type="confirm" title="提示" content="进入网易新闻" confirm-text="确定" confirm-color="#f60"
+  cancel-text="取消" cancel-color="#999" bind:linconfirm="nextNews" />

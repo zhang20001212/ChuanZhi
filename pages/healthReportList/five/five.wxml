@@ -1,0 +1,15 @@
+<view class="tab-content" style="box-sizing: border-box;padding: 10rpx;">
+  <block wx:for="{{list}}" wx:for-item="val" wx:key="index">
+    <view bindtap="tap" data-no="{{index+1}}">
+      <view style="font-size: 40rpx;">{{index+1}}、{{val.questionContent}}</view>
+      <checkbox-group bindchange="checkboxChange">
+        <view wx:for="{{val.options}}" wx:for-item="values" wx:key="pos" style="margin-bottom: 10rpx;">
+          <checkbox class="checkbox" data-questionCode="{{val.questionCode}}" data-optionCode="{{values.optionCode}}"
+            value="{{values.optionCode}}">
+            {{values.optionContent}}</checkbox>
+        </view>
+      </checkbox-group>
+    </view>
+  </block>
+</view>
+<l-button size="long" bindtap="submit">提交</l-button>

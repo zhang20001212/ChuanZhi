@@ -1,0 +1,109 @@
+<l-tabs bind:linchange="changeTabs" animated="{{true}}" swipeable="{{true}}" scrollable="{{true}}"
+  animated-for-line="{{true}}" content-height="2000">
+  <!-- 膳食方案 -->
+  <l-tabpanel tab="膳食方案" key="one" slot="one">
+    <!-- 膳食方案顶部图片 -->
+    <view style="margin-top: 20rpx;">
+      <view style="padding: 10rpx;">
+        <image src="/pages/images/widget-program01.png" style="width:100%; height:200rpx;border-radius: 20rpx;"></image>
+      </view>
+    </view>
+    <!-- 膳食方案详情头布局 -->
+    <view style="margin-top: 20rpx;">
+      <view style="padding: 10rpx;">
+        <view
+          style="height:90rpx;background:linear-gradient(to right, #ead6ee, #a0f1ea);border-radius: 15rpx;flex-direction: row;display: flex;">
+          <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">餐次</view>
+          <view style="width: 1rpx;height: 90rpx;background: black;"></view>
+          <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">推荐食物</view>
+          <view style="width: 1rpx;height: 90rpx;background: black;"></view>
+          <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">摄入量</view>
+          <view style="width: 1rpx;height: 90rpx;background: black;"></view>
+          <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">单位</view>
+        </view>
+      </view>
+    </view>
+    <!-- 膳食方案详情 -->
+    <block wx:for="{{food}}" wx:for-item="val" wx:key="index">
+      <view>
+        <view style="padding: 10rpx;">
+          <view style="height:90rpx;flex-direction: row;display: flex;">
+            <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">{{index+1}}
+            </view>
+            <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">{{val.foodname}}
+            </view>
+            <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">50g</view>
+            <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">{{index+1}}{{val.size}}
+            </view>
+          </view>
+          <view style="background: black;width: 100%;height: 1rpx;margin-top: 10rpx;"></view>
+        </view>
+      </view>
+    </block>
+  </l-tabpanel>
+
+  <!-- 运动方案 -->
+  <l-tabpanel tab="运动方案" key="two" slot="two">
+    <!-- 运动方案头布局 -->
+    <view style="margin-top: 20rpx;">
+      <view style="padding: 10rpx;">
+        <view
+          style="height:90rpx;background:linear-gradient(to right, #ead6ee, #a0f1ea);border-radius: 15rpx;flex-direction: row;display: flex;">
+          <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">运动名称</view>
+          <view style="width: 1rpx;height: 90rpx;background: black;"></view>
+          <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">运动时长</view>
+          <view style="width: 1rpx;height: 90rpx;background: black;"></view>
+          <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">运动周期</view>
+          <view style="width: 1rpx;height: 90rpx;background: black;"></view>
+          <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">消耗量</view>
+        </view>
+      </view>
+    </view>
+    <!-- 运动方案详情 -->
+    <block wx:for="{{sport}}" wx:for-item="val" wx:key="index">
+      <view>
+        <view style="padding: 10rpx;">
+          <view style="height:90rpx;flex-direction: row;display: flex;">
+            <view style="flex:1;font-size:35rpx;font-weight:300;text-align: center;">{{val.sportname}}
+            </view>
+            <view style="flex:1;font-size:35rpx;font-weight:300;text-align: center;">{{val.sporttime}}
+            </view>
+            <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">{{val.number}}
+            </view>
+            <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">20kal</view>
+          </view>
+          <view style="background: black;width: 100%;height: 1rpx;margin-top: 10rpx;"></view>
+        </view>
+      </view>
+    </block>
+  </l-tabpanel>
+  <!-- 干预计划 -->
+  <l-tabpanel tab="干预计划" key="three" slot="three">
+    <!-- 干预计划头布局 -->
+    <view style="margin-top: 20rpx;">
+      <view style="padding: 10rpx;">
+        <view
+          style="height:90rpx;background:linear-gradient(to right, #ead6ee, #a0f1ea);border-radius: 15rpx;flex-direction: row;display: flex;">
+          <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">疾病名称</view>
+          <view style="width: 1rpx;height: 90rpx;background: black;"></view>
+          <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">干预形式</view>
+          <view style="width: 1rpx;height: 90rpx;background: black;"></view>
+          <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">主要内容</view>
+        </view>
+      </view>
+    </view>
+    <!-- 干预方案详情 -->
+    <block wx:for="{{scheme}}" wx:for-item="val">
+      <view>
+        <view style="padding: 10rpx;">
+          <view style="height:90rpx;flex-direction: row;display: flex;">
+            <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">{{val.title}}</view>
+            <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">{{val.remarks}}</view>
+            <view style="flex:1;font-size:35rpx;font-weight:300;line-height:90rpx;text-align: center;">{{val.goal}}</view>
+          </view>
+          <view style="background: black;width: 100%;height: 1rpx;margin-top: 10rpx;"></view>
+        </view>
+      </view>
+    </block>
+  </l-tabpanel>
+</l-tabs>

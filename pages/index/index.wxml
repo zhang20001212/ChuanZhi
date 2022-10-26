@@ -1,0 +1,98 @@
+<view class="head">
+  <swiper class="sw1" catchtap="onSwiperTap" indicator-dots="true" indicator-color="black" indicator-active-color="blue"
+    autoplay="true" interval="2000" circular="true" easing-function="linear">
+    <swiper-item>
+      <image class="one" src="/pages/images/widget-banner_01.png" data-id="1"></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="one" src="/pages/images/widget-banner_02.png" data-id="2"></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="one" src="/pages/images/widget-banner_03.png" data-id="3"></image>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 中间用户功能 -->
+<view class="middle">
+  <l-grid l-class="grid" row-num="3" show-border="{{false}}" bind:linitemtap="navigation">
+    <l-grid-item l-grid-item="grid_item" key="1" slot="1">
+      <view style="background: #998AFF; width: 130rpx;height: 130rpx;border-radius: 130rpx;">
+        <image src="../images/one.png"
+          style="width: 70rpx; height: 70rpx;float: left;position: relative;top: 29rpx;left: 32rpx;"></image>
+      </view>
+      <view class="text" style="margin-top: 15rpx;">预约挂号</view>
+    </l-grid-item>
+    <l-grid-item l-grid-item="grid_item" key="2" slot="2">
+      <view style="background: #43CAC2; width: 130rpx;height: 130rpx;border-radius: 130rpx;">
+        <image src="../images/two.png"
+          style="width: 80rpx; height: 80rpx;float: left;position: relative;top: 25rpx;left: 27rpx;"></image>
+      </view>
+      <view class="text" style="margin-top: 15rpx;">报告查询</view>
+    </l-grid-item>
+    <l-grid-item l-grid-item="grid_item" key="3" slot="3">
+      <view style="background: #FF8474; width: 130rpx;height: 130rpx;border-radius: 130rpx;">
+        <image src="../images/three.png"
+          style="width: 80rpx; height: 80rpx;float: left;position: relative;top: 25rpx;left: 27rpx;"></image>
+      </view>
+      <view class="text" style="margin-top: 15rpx;">健康评估</view>
+    </l-grid-item>
+    <l-grid-item l-grid-item="grid_item" key="4" slot="4">
+      <view style="background: #1DBCF2; width: 130rpx;height: 130rpx;border-radius: 130rpx;">
+        <image src="../images/four.png"
+          style="width: 80rpx; height: 80rpx;float: left;position: relative;top: 25rpx;left: 27rpx;"></image>
+      </view>
+      <view class="text" style="margin-top: 15rpx;">健康干预</view>
+    </l-grid-item>
+    <l-grid-item l-grid-item="grid_item" key="5" slot="5">
+      <view style="background: #1DBCF2; width: 130rpx;height: 130rpx;border-radius: 130rpx;">
+        <image src="../images/five.png"
+          style="width: 80rpx; height: 80rpx;float: left;position: relative;top: 25rpx;left: 27rpx;"></image>
+      </view>
+      <view class="text" style="margin-top: 15rpx;">健康档案</view>
+    </l-grid-item>
+    <l-grid-item l-grid-item="grid_item" key="6" slot="6">
+      <view style="background: #7BC960; width: 130rpx;height: 130rpx;border-radius: 130rpx;">
+        <image src="../images/six.png"
+          style="width: 80rpx; height: 80rpx;float: left;position: relative;top: 25rpx;left: 27rpx;"></image>
+      </view>
+      <view class="text" style="margin-top: 15rpx;">健康咨询</view>
+    </l-grid-item>
+  </l-grid>
+</view>
+
+<!-- 底部bottom图片区 -->
+<view class="bottom" style="background-color: rgb(243, 242, 247);">
+  <image class="bottom-img" src="/pages/images/asset-ad.png"></image>
+</view>
+
+<view>
+  <l-popup show="{{one}}" content-align="center">
+    <l-card type="cover" image="/pages/images/wx_one.jpg" title="避免在饮食上掉入陷阱">
+      <!-- 此处为content -->
+      <view class="content">
+        摄入过多或者摄入太少的热量，对身体来说都是不达标的。因为摄入太多的热量会让身体囤积更多的脂肪，而如果摄入太少的话，肌肉生长会受限，以至于有些时候肌肉还会被分解掉。我们要知道蛋白质，脂肪，碳水化合物，它们的比例。如果你做好了增肌或减脂的准备，那么请把饮食牢牢记在心头，不要再佛系对待。因为手中有粮心中才不慌，这就需要我们提前准备好可以吃的食物。
+      </view>
+    </l-card>
+  </l-popup>
+</view>
+<view>
+  <l-popup show="{{two}}" content-align="center">
+    <l-card type="cover" image="/pages/images/wx_two.jpg" title="小米堪称最廉价的养生食材">
+      <!-- 此处为content -->
+      <view class="content">
+        世界上有许许多多的美食，每一种美食都会让人们获取到相应的营养价值。今天给大家介绍的这种美食，“最廉价”的养生食材，常吃它缓脚气，治口臭，健脾和胃！提起小米，大家的第一个反应就是养胃。除了养胃之外，它还有许许多多的作用。比如，上到口臭，下到脚气，常吃它，都能够缓解。可以说小米是一种最廉价的养生食材了，所以，如果想养生的朋友，一定要把小米安排上呀。
+      </view>
+    </l-card>
+  </l-popup>
+</view>
+<view>
+  <l-popup show="{{three}}" content-align="center">
+    <l-card type="cover" image="/pages/images/wx_three.jpg" title="恢复免疫力超强的食物 增强免疫力必吃">
+      <!-- 此处为content -->
+      <view class="content">
+        西兰花又叫花椰菜，花椰菜含丰富的维生素、矿物质等。还含有多种生物碱类、黄酮类化合物、硫代葡萄糖苷等活性成分。且花椰菜是含有类黄酮最多的食物之一，能提高机体的免疫力，可防止感冒和坏血病的发生。
+      </view>
+    </l-card>
+  </l-popup>
+</view>

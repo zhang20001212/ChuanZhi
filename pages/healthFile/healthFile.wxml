@@ -1,0 +1,27 @@
+<view class="global">
+  <view class="head">
+    <view style="margin-bottom:10rpx">
+      <l-notice-bar show="{{true}}" type="swip" swip-arr="{{arr}}" front-icon-name="comment" front-icon-size="20"
+        front-icon-color="#3683D6" speed='1000'>
+      </l-notice-bar>
+    </view>
+    <l-grid l-class="grid" row-num="2" show-border="{{false}}" bind:linitemtap="test">
+      <l-grid-item l-grid-item="grid_item" key="1" slot="1">
+        <image src="../images/wx_medical_people_information.png" style="width: 80rpx; height: 80rpx;"></image>
+        <view class="text">基本信息</view>
+      </l-grid-item>
+      <l-grid-item l-grid-item="grid_item" key="2" slot="2">
+        <image src="../images/wx_medical_family_history.png" style="width: 80rpx; height: 80rpx;"></image>
+        <view class="text">家族史</view>
+      </l-grid-item>
+      <l-grid-item l-grid-item="grid_item" key="3" slot="3">
+        <image src="../images/wx_medical_case.png" style="width: 80rpx; height: 80rpx;"></image>
+        <view class="text">病例史</view>
+      </l-grid-item>
+      <l-grid-item l-grid-item="grid_item" key="4" slot="4">
+        <image src="../images/wx_medical_allergy_history.png" style="width: 80rpx; height: 80rpx;"></image>
+        <view class="text">过敏史</view>
+      </l-grid-item>
+    </l-grid>
+  </view>
+</view>

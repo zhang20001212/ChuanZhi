@@ -1,0 +1,79 @@
+<!-- 用户信息修改表单 -->
+<l-popup show="{{true}}" content-align="center" l-panel-class="panel">
+  <!-- 完善信息信息栏 -->
+  <view style="flex-direction: row;display: flex;box-sizing: border-box;padding:10rpx 0 10rpx 0;">
+    <view class="information_img"></view>
+    <view class="information_text">个人信息</view>
+  </view>
+  <!-- 信息填写表单 -->
+  <view style="border-radius: 15rpx;">
+    <!-- 上传图片控件 -->
+      <l-image-picker custom="{{true}}" l-class="testOne" l-item-class="testOne"count="1"bind:linchange="avatar_pick">
+      <view>
+        <image src="{{list[0].avatar}}" style="width: 230rpx; height: 230rpx;" />
+      </view>
+    </l-image-picker>
+    <!-- 表单 -->
+    <l-form name="complete" l-form-btn-class="l-form-btn-class" bind:linsubmit="completeSubmit">
+      <l-form-item name="completePeopleId">
+        <view style="display: flex; flex-direction: row; justify-content: flex-start;" bindtap="seRiLi">
+          <l-input label="用户ID" id="completePeopleId" value="{{userId}}" show-row="{{false}}"
+            required="{{true}}" disabled="{{true}}" />
+        </view>
+      </l-form-item>
+
+      <l-form-item name="completePeopleName">
+        <l-input label="姓名:" clear="{{true}}" id="completePeopleName" value="{{list[0].name}}"
+          required="{{true}}" show-row="{{false}}" placeholder="请输入姓名" bind:linblur="getName" disabled="{{true}}"/>
+      </l-form-item>
+
+      <l-form-item name="completePeopleGender">
+        <view style=" display: flex; flex-direction: row; justify-content: flex-start;">
+          <l-input label="性别:" id="completePeopleGender" value="{{list[0].sex}}" required="{{true}}" show-row="{{false}}"
+            placeholder="请选择性别" disabled="{{true}}"/>
+          <radio-group style="margin-top: 20rpx;position: relative; left: 80rpx; width: 300rpx;" name="gender">
+            <radio disabled="true" value="男" style="margin-right: 10rpx;">男</radio>
+            <radio disabled="true" value="女">女</radio>
+          </radio-group>
+        </view>
+      </l-form-item>
+
+      <l-form-item name="completePeoplePhone">
+        <view style=" display: flex; flex-direction: row; justify-content: flex-start;">
+          <l-input id="completePeoplePhone" label="手机号:" value="{{list[0].phone}}" required="{{true}}"
+            show-row="{{false}}" placeholder="请输入手机号" rules="{{phoneRules}}" bind:linblur="getPhone" />
+        </view>
+      </l-form-item>
+
+      <l-form-item name="completePeopleAge">
+        <view style=" display: flex; flex-direction: row; justify-content: flex-start;">
+          <l-input id="completePeopleAge" label="年龄:" value="{{list[0].age}}" required="{{true}}"
+            show-row="{{false}}" placeholder="请输入年龄" rules="{{phoneRules}}" bind:linblur="getPhone" />
+        </view>
+      </l-form-item>
+
+      <l-form-item name="completePeopleIdCard">
+        <l-input id="completePeopleIdCard" label="身份证号:" value="{{list[0].idcard}}" required="{{true}}"
+          show-row="{{false}}" placeholder="请输入身份证号" bind:linblur="getIdcard" />
+      </l-form-item>
+
+      <l-form-item name="completePeopleTime">
+        <view style="display: flex; flex-direction: row; justify-content: flex-start;" bindtap="seRiLi">
+          <l-input label="填写时间" id="completePeopleTime" value="{{list[0].time}}" show-row="{{false}}"
+            required="{{true}}" disabled="{{true}}" />
+        </view>
+      </l-form-item>
+
+      <view slot="submit" style="position:fixed;bottom: 0; width: 100%;">
+        <l-button l-class="btn_bottom" size="long">确认修改</l-button>
+      </view>
+    </l-form>
+  </view>
+</l-popup>
+
+
+
+
+
+<l-loading></l-loading>
+<l-message content="{{content}}"></l-message>

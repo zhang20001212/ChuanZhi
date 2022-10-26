@@ -1,0 +1,39 @@
+.radio_group radio{
+  margin-right: 20rpx;
+}
+.common_radio_gorup{
+  margin-bottom: 20rpx;
+}
+.l-tabpanel{
+  height: 700rpx;
+}
+.checkbox{
+  margin-right: 20rpx;
+}
+.test{
+  background: brown;
+  height: 1000rpx;
+}
+.pop{
+  background:white;
+}
+
+
+/* 体检人信息左图样式 */
+.information_img {
+  width: 10rpx;
+  height: 50rpx;
+  background: #068EE2;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  margin-left: 5rpx;
+}
+/* 体检人信息文字样式 */
+.information_text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  font-weight: 300;
+  margin-left: 10rpx;
+}

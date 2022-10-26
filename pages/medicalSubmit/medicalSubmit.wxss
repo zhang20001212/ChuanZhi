@@ -1,0 +1,82 @@
+
+/* .l-form-btn-class{
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+} */
+.l_btn_class{
+  position: relative;
+  top: 15rpx;
+  left: 10rpx;
+}
+.tag{
+ position: relative;
+ top: 10rpx;
+ margin-right: 10rpx;
+}
+/* .btn_bottom{
+  position: absolute;
+  bottom: 0;
+} */
+/* 卡片标题样式 */
+.title{
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+
+/* 预约须知总体 */
+.medical_notice {
+  width: 100%;
+  height: 100rpx;
+  background-color: white;
+}
+
+/* 预约须知图片样式 */
+.notice_img {
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+}
+
+/* 预约须知文字样式 */
+.notice_details {
+  font-size: 35rpx;
+  line-height: 100rpx;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: initial;
+  margin-left: 7rpx;
+  position: absolute;
+}
+
+/* 预约须知进入图片样式 */
+.notice_img_next {
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin-top: 15rpx;
+  position: relative;
+  left: 630rpx;
+}
+/* 体检人信息左图样式 */
+.information_img {
+  width: 10rpx;
+  height: 50rpx;
+  background: #068EE2;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  margin-left: 20rpx;
+}
+/* 体检人信息文字样式 */
+.information_text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35rpx;
+  font-weight: 300;
+  margin-left: 20rpx;
+}
+
+  

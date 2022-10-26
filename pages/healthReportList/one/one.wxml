@@ -1,0 +1,210 @@
+<view class="tab-content" style="box-sizing: border-box;padding: 10rpx;">
+  <block wx:for="{{list}}" wx:for-item="val" wx:key="index">
+    <view bindtap="tap" data-no="{{index+1}}">
+      <view style="font-size: 40rpx;">{{index+1}}、{{val.questionContent}}</view>
+      <checkbox-group bindchange="checkboxChange">
+        <view wx:for="{{val.options}}" wx:for-item="values" wx:key="pos" style="margin-bottom: 10rpx;">
+          <checkbox class="checkbox" data-questionCode="{{val.questionCode}}" data-optionCode="{{values.optionCode}}"
+            value="{{values.optionCode}}">
+            {{values.optionContent}}</checkbox>
+        </view>
+      </checkbox-group>
+    </view>
+  </block>
+</view>
+<l-button size="long" bindtap="submit">提交</l-button>
+<!-- 报告弹出pop显示报告信息 -->
+<l-popup show="{{flag}}" content-align="center" l-class="pop">
+  <!-- 评估结果概览 === 评分模板 -->
+  <l-card type="avatar" l-class="card" image="/pages/images/test_avatar.jpg" title="张三" describe="刚刚">
+    <view style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;">
+      <view class="information_img"></view>
+      <view class="information_text">{{title}}</view>
+    </view>
+    <!-- 此处为评估结果的概述内容 -->
+    <view style="display: flex; flex-direction: row; justify-content: flex-start;">
+      <text>{{remark}}</text>
+    </view>
+    <view style="display: flex; flex-direction: row; justify-content: flex-start; margin-top: 20rpx;">
+      <view style="font-size: 35rpx;font-weight: 300;">风险等级：</view>
+      <text style="margin-top: 7rpx;">{{stateDesc}}</text>
+    </view>
+    <!-- 分割线 -->
+    <view style="width: 100%;height: 2rpx;background: black; margin-top: 15rpx;"></view>
+    <!-- 风险因素 -->
+    <view style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;">
+      <view class="information_img"></view>
+      <view class="information_text">风险因素</view>
+    </view>
+    <!-- 风险因素的内容 -->
+    <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;"
+      wx:for="{{riskList}}" wx:for-item="risk">
+      <view style="font-size: 35rpx;font-weight: 300;">{{risk.riskName}}：</view>
+      <text style="margin-top: 7rpx;">{{risk.actualResult}}</text>
+      <!-- <text style="margin-top: 7rpx;">{{risk.referScope}}</text> -->
+    </view>
+    <!-- 分割线 -->
+    <view style="width: 100%;height: 2rpx;background: black; margin-top: 15rpx;"></view>
+
+    <!-- 报告声明 -->
+    <view
+      style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;margin-top: 10rpx;">
+      <view class="information_img"></view>
+      <view class="information_text">报告声明</view>
+    </view>
+    <!-- 报告声明的内容 -->
+    <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+      <view style="font-size: 35rpx;font-weight: 300;">声明：</view>
+      <text style="margin-top: 7rpx;">{{resultBottomName}}</text>
+    </view>
+    <!-- 保存到手机按钮 -->
+    <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
+      保存到手机
+    </l-tag>
+    <l-tag bindtap="lookInfomation" shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
+      健康指导
+    </l-tag>
+  </l-card>
+</l-popup>
+
+<!-- 报告弹出底部显示饮食干预信息 -->
+<l-arc-popup show="{{healthFlag}}" max-height="1800" min-height="500">
+  <view style="height: 1000rpx;">
+    <!-- 评估结果概览 === 评分模板 -->
+    <l-card type="avatar" l-class="card" image="/pages/images/test_avatar.jpg" title="张三" describe="刚刚">
+      <view style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;">
+        <view class="information_img"></view>
+        <view class="information_text">指导介绍</view>
+      </view>
+      <!-- 此处为评估结果的概述内容 -->
+      <view style="display: flex; flex-direction: row; justify-content: flex-start;">
+        <text>{{guideRemark}}</text>
+      </view>
+      <!-- <view style="display: flex; flex-direction: row; justify-content: flex-start; margin-top: 20rpx;">
+          <view style="font-size: 35rpx;font-weight: 300;">指导目标：</view>
+          <text style="margin-top: 7rpx;">高血压</text>
+        </view> -->
+      <!-- 分割线 -->
+      <view style="width: 100%;height: 2rpx;background: black; margin-top: 15rpx;"></view>
+      <!-- 干预内容头布局 -->
+      <view style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;">
+        <view class="information_img"></view>
+        <view class="information_text">干预内容</view>
+      </view>
+      <!-- 干预内容总介绍 -->
+      <view style="display: flex; flex-direction: row; justify-content: flex-start;">
+        <!-- <view style="font-size: 35rpx;font-weight: 300;">方向：</view> -->
+        <text style="margin-top: 7rpx;">{{guideContent}}</text>
+      </view>
+      <!-- 分割线 -->
+      <view style="width: 100%;height: 2rpx;background: black; margin-top: 15rpx;"></view>
+
+      <!-- 饮食指导方案 -->
+      <view
+        style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;margin-top: 10rpx;">
+        <view class="information_img"></view>
+        <view class="information_text">饮食指导</view>
+      </view>
+      <!-- 报告声明的内容 -->
+      <view style="margin-top: 10rpx; margin-bottom: 10rpx;">
+        <view style="font-size: 35rpx;font-weight: 300;">推荐烹饪方式：</view>
+        <view style="flex-direction: row;display: flex;">
+          <block wx:for="{{cookingList}}" wx:for-item="methodItem">
+            <view style="margin-right: 5rpx;">
+              <image style="width: 100rpx; height: 100rpx;" src="{{methodItem.imgUrl}}"></image>
+              <view style="margin-left: 20rpx;">{{methodItem.method}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <!-- 原则 -->
+      <!-- <view style="display: flex; flex-direction: row; justify-content: flex-start; margin-top: 10rpx;">
+            <view style="font-size: 35rpx;font-weight: 300;">原则：</view>
+            <block wx:for="{{dietaryList}}" wx:for-item="dietaryItem">
+              <view style="margin-right: 5rpx;">{{dietaryItem}}</view>
+            </block>
+          </view> -->
+      <view style="font-size: 35rpx;font-weight: 300;margin-right: 10rpx; flex-direction: row;display: flex;">
+        膳食推荐方案：
+      </view>
+      <view style="font-size:small">
+        <text>{{ditePlan}}</text>
+        <text>{{diteRemark}}</text>
+      </view>
+      <!-- 膳食推荐卡片 -->
+      <block wx:for="{{diteList}}" wx:for-item="diteItem">
+        <view style="margin-bottom: 5rpx;">
+          <l-card type="cover" image="{{diteItem.imgUrl}}" title="{{index+1}}、{{diteItem.classify}}">
+            <view class="content">
+              {{diteItem.remark}}
+            </view>
+          </l-card>
+        </view>
+      </block>
+      <!-- 运动指导 -->
+      <view
+        style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;margin-top: 10rpx;">
+        <view class="information_img"></view>
+        <view class="information_text">运动指导</view>
+      </view>
+      <view style="font-size: 35rpx;font-weight: 300;margin-right: 10rpx; flex-direction: row;display: flex;">
+        运动注意事项：
+      </view>
+      <view style="font-size:small">
+        <text>{{sportAttention}}</text>
+      </view>
+      <view
+        style="font-size: 35rpx;font-weight: 300;margin-right: 10rpx; flex-direction: row;display: flex; margin-top: 10rpx; margin-bottom: 10rpx;">
+        运动推荐：
+      </view>
+      <view style="margin-bottom: 10rpx;">
+        <block wx:for="{{sportList}}" wx:for-item="sportItem">
+          <view style="margin-bottom: 5rpx;">
+            <l-card type="cover" image="{{sportItem.imgUrl}}" title="{{index+1}}、{{sportItem.name}}">
+              <view class="content">
+                {{sportItem.count}}{{sportItem.unit}}
+              </view>
+              <view class="content" style="font-size: 35rpx; font-weight: 300;">
+                类型：{{sportItem.classify}}
+              </view>
+            </l-card>
+          </view>
+        </block>
+      </view>
+      <!-- 生活方式指导 -->
+      <view
+        style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;margin-top: 10rpx;">
+        <view class="information_img"></view>
+        <view class="information_text">生活方式指导</view>
+      </view>
+      <view style="margin-bottom: 10rpx;">
+        <block wx:for="{{lifeList}}" wx:for-item="lifeItem">
+          <view style="margin-bottom: 5rpx;">
+            <l-card type="cover" image="{{lifeItem.imgUrl}}" title="{{index+1}}、{{lifeItem.lifeStyleName}}">
+              <view class="content">
+                {{lifeItem.lifeStyleContents}}
+              </view>
+            </l-card>
+          </view>
+        </block>
+      </view>
+      <!-- 心理指导 -->
+      <view
+        style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;margin-top: 10rpx;">
+        <view class="information_img"></view>
+        <view class="information_text">心理指导</view>
+      </view>
+      <view style="margin-bottom: 10rpx;">
+        <block wx:for="{{psychologyList}}" wx:for-item="psychologyItem">
+          <view style="margin-bottom: 5rpx;">
+            <l-card type="cover" image="{{psychologyItem.imgUrl}}" title="{{psychologyItem.psychologyName}}">
+              <view class="content">
+                {{psychologyItem.psychologyContents}}
+              </view>
+            </l-card>
+          </view>
+        </block>
+      </view>
+    </l-card>
+  </view>
+</l-arc-popup>

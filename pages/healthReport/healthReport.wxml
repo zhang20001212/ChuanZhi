@@ -1,0 +1,202 @@
+<l-tabs bind:linchange="changeTabs" animated="{{true}}" swipeable="{{true}}" scrollable="{{true}}"
+  animated-for-line="{{true}}" content-height="2000">
+  <!-- 已经预约列表 -->
+  <l-tabpanel tab="未到诊" key="one" slot="one">
+    <view style="margin-top: 20rpx;">
+      <l-card type="avatar" image="/pages/images/test_avatar.jpg" title="张镪" describe="性别：男">
+        <!-- 此处为content -->
+        <view class="avter-content">
+          套餐名称：入职体检套餐
+        </view>
+        <view class="avter-content">
+          预约时间：2021-09-29
+        </view>
+      </l-card>
+    </view>
+  </l-tabpanel>
+
+  <!-- 查看体检报告 -->
+  <l-tabpanel tab="已就诊" key="two" slot="two">
+    <view class="behind">
+      <l-card type="avatar" image="/pages/images/test_avatar.jpg" title="张镪" describe="性别：男">
+        <!-- 此处为content -->
+        <view class="avter-content">
+          套餐名称：测试测试
+        </view>
+        <view class="avter-content">
+          档案号：000000000000
+        </view>
+        <view class="avter-content">
+          预约时间：2021-09-15
+        </view>
+        <l-tag type="touch" plain="{{true}}" bind:lintap="lookReserve" shape="circle" bg-color="#f3f3f3"
+          font-color="#3963BC" slot="more" size="large">
+          查看报告
+        </l-tag>
+      </l-card>
+    </view>
+  </l-tabpanel>
+</l-tabs>
+
+
+<!-- 体检报告 -->
+<l-popup show="{{show}}" content-align="center">
+  <view style="width: 700rpx;">
+    <l-card type="avatar" image="/pages/images/test_avatar.jpg" title="张镪]" describe="性别：男">
+      <!-- 此处为content -->
+      <view class="avter-content" style="display: flex; flex-direction: row; justify-content: flex-start;">
+        <view style="font-size: 40rpx;font-weight: 300;">检查套餐：</view>
+        <text style="margin-top: 10rpx;">测试测试</text>
+      </view>
+      <view class="avter-content" style="display: flex; flex-direction: row; justify-content: flex-start;">
+        <view style="font-size: 40rpx;font-weight: 300;">检查时间：</view>
+        <text style="margin-top: 10rpx;">2021-09-15</text>
+      </view>
+      <!-- 分割线 -->
+      <view style="width: 100%;height: 1rpx;background: black;margin-top: 5rpx;margin-bottom: 10rpx;"></view>
+      <view class="avter-content">
+        <!-- <view style="font-size: 40rpx;font-weight: 300;">检查结果</view> -->
+        <!-- 体检报告信息栏 -->
+        <view
+          style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;">
+          <view class="information_img"></view>
+          <view class="information_text">体检报告信息</view>
+        </view>
+
+        <view style="display: flex; flex-direction: row; justify-content: flex-start; margin-left: 20rpx;">
+          <view style="font-size: 35rpx;font-weight: 300;">身高：</view>
+          <text style="margin-top: 7rpx;">180cm</text>
+        </view>
+        <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+          <view style="font-size: 35rpx;font-weight: 300;">体重：</view>
+          <text style="margin-top: 7rpx;">75kg</text>
+        </view>
+        <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+          <view style="font-size: 35rpx;font-weight: 300;">收缩压：</view>
+          <text style="margin-top: 7rpx;">114mmHg</text>
+        </view>
+        <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+          <view style="font-size: 35rpx;font-weight: 300;">舒张压：</view>
+          <text style="margin-top: 7rpx;">90mmHg</text>
+        </view>
+        <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+          <view style="font-size: 35rpx;font-weight: 300;">脉搏：</view>
+          <text style="margin-top: 7rpx;">90次/分</text>
+        </view>
+        <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+          <view style="font-size: 35rpx;font-weight: 300;">裸眼视力(左)：</view>
+          <text style="margin-top: 7rpx;">5.5</text>
+        </view>
+        <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+          <view style="font-size: 35rpx;font-weight: 300;">裸眼视力(右)：</view>
+          <text style="margin-top: 7rpx;">5.5</text>
+        </view>
+        <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+          <view style="font-size: 35rpx;font-weight: 300;margin-top: 5rpx; width: 200rpx;">血常规：</view>
+          <view style="display: flex; flex-direction: row; justify-content: flex-start;">
+            <!-- 血常规指数one -->
+            <view>
+              <l-collapse>
+                <l-collapse-item l-title-class="collapse" l-body-class="body" custom-title="{{true}}">
+                  <view slot="title" style="color: black; font-weight: bold;">白细胞</view>
+                  11.25->指数正常
+                </l-collapse-item>
+              </l-collapse>
+              <l-collapse>
+                <l-collapse-item custom-title="{{true}}">
+                  <view slot="title" style="color: black; font-weight: bold;">血红蛋白</view>
+                  11.25->指数正常
+                </l-collapse-item>
+              </l-collapse>
+            </view>
+            <!-- 血常规指数two -->
+            <view>
+              <l-collapse>
+                <l-collapse-item l-title-class="collapse" l-body-class="body" custom-title="{{true}}">
+                  <view slot="title" style="color: black; font-weight: bold;">红细胞</view>
+                  11.25->指数正常
+                </l-collapse-item>
+              </l-collapse>
+              <l-collapse>
+                <l-collapse-item custom-title="{{true}}">
+                  <view slot="title" style="color: black; font-weight: bold;">血小板</view>
+                  11.25->指数正常
+                </l-collapse-item>
+              </l-collapse>
+            </view>
+          </view>
+        </view>
+        <!-- 分割线 -->
+        <view style="width: 100%;height: 2rpx;background: black; margin-top: 15rpx;"></view>
+        <!-- 检查报告建议 -->
+        <view>
+          <!-- 医生建议头布局 -->
+          <view
+            style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;">
+            <view class="information_img"></view>
+            <view class="information_text">医生建议</view>
+          </view>
+          <!-- 医生给出的检查报告的内容解读 -->
+          <view>
+            <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+              <view style="font-size: 35rpx;font-weight: 300;">建议医生：</view>
+              <text style="margin-top: 7rpx;">李某某</text>
+            </view>
+            <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+              <view style="font-size: 35rpx;font-weight: 300;">收缩压：</view>
+              <text style="margin-top: 7rpx;">属于正常学术范围</text>
+            </view>
+            <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+              <view style="font-size: 35rpx;font-weight: 300;">舒张压：</view>
+              <text style="margin-top: 7rpx;">属于正常学术范围</text>
+            </view>
+            <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+              <view style="font-size: 35rpx;font-weight: 300;">脉搏：</view>
+              <text style="margin-top: 7rpx;">属于正常学术范围</text>
+            </view>
+            <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+              <view style="font-size: 35rpx;font-weight: 300;">视力：</view>
+              <text style="margin-top: 7rpx;">有近视的可能</text>
+            </view>
+            <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+              <view style="font-size: 35rpx;font-weight: 300;">红细胞：</view>
+              <text style="margin-top: 7rpx;">正常</text>
+            </view>
+            <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+              <view style="font-size: 35rpx;font-weight: 300;">白细胞：</view>
+              <text style="margin-top: 7rpx;">偏高,有发炎的可能</text>
+            </view>
+            <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+              <view style="font-size: 35rpx;font-weight: 300;">血红蛋白：</view>
+              <text style="margin-top: 7rpx;">偏高,注意饮食清淡</text>
+            </view>
+            <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+              <view style="font-size: 35rpx;font-weight: 300;">血小板：</view>
+              <text style="margin-top: 7rpx;">正常</text>
+            </view>
+          </view>
+          <!-- 分割线 -->
+          <view style="width: 100%;height: 2rpx;background: black; margin-top: 15rpx;"></view>
+          <!-- 总体评价 -->
+          <view
+            style="flex-direction: row;display: flex;background: white;box-sizing: border-box;padding:10rpx 0 10rpx 0;">
+            <view class="information_img"></view>
+            <view class="information_text">总体建议</view>
+          </view>
+          <view style="display: flex; flex-direction: row; justify-content: flex-start;margin-left: 20rpx;">
+            <view style="font-size: 35rpx;font-weight: 300;">饮食方面：</view>
+            <text style="margin-top: 7rpx;">注意饮食清淡，避免大鱼大肉</text>
+          </view>
+        </view>
+      </view>
+
+      <l-tag type="touch" plain="{{true}}" bind:lintap="lookReserve" shape="circle" bg-color="#f3f3f3"
+        font-color="#3963BC" slot="more" size="large">
+        保存到相册
+      </l-tag>
+    </l-card>
+  </view>
+</l-popup>
+<!-- <l-arc-popup show="{{show}}" arc-radius="50">
+  
+</l-arc-popup> -->

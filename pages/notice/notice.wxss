@@ -1,0 +1,29 @@
+/* 全局样式 */
+.global{
+  box-sizing: border-box;
+  padding: 10rpx;
+}
+/* 预约须知总体 */
+.medical_notice {
+  height: 100rpx;
+  flex-direction: row;
+  display: flex;
+  margin-top: 20rpx;
+}
+
+/* 预约须知文字样式 */
+.notice_details {
+  width: 100%;
+  font-size: 35rpx;
+  font-style: initial;
+  font-weight: 300;
+  line-height: 50rpx;
+  margin-left: 20rpx;
+}
+.information_img {
+  width: 10rpx;
+  height: 50rpx;
+  background: #068EE2;
+  border-radius: 20rpx;
+  margin-left: 20rpx;
+}

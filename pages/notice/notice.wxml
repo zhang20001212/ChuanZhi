@@ -1,0 +1,36 @@
+<!-- 全局 -->
+<view class="global">
+  <view class="medical_notice">
+    <view class="information_img"></view>
+    <text class="notice_details">预约须知</text>
+  </view>
+  <!-- 体检报告时间 -->
+    <view style="margin-left: 20rpx;">体检报告：体检报告将于体检后5-7个工作日出具</view>
+    <text style="margin-left: 20rpx; color: #888888;text-align: left;float: left; margin-top: 20rpx;">A、纸质报告可在接到体检中心电话通知后自取，或于体检当日前台登记要求邮寄（邮费自理）</text>
+  <view style="width: 100%;height: 1rpx;background-color: #888888;margin-top: 30rpx;margin-bottom: 30rpx;float: left;"></view>
+  <view class="two">
+    <view style="margin-left: 20rpx;">体检前：</view>
+    <view style="margin-left: 20rpx;color: #888888;margin-top: 20rpx;">1、体检前一天请您清淡饮食,勿饮酒、勿劳累。体检当天请空腹,禁食。</view>
+    <view style="margin-left: 20rpx;color: #888888;margin-top: 20rpx;">
+      2、体检前一天要注意休息，晚上8点后不再进食。避免剧烈运动和情绪激动，保证充足睡眠，以免影响体检结果。</view>
+    <view style="margin-left: 20rpx;color: #888888;">3、例假期间不宜做妇科、尿液检查。</view>
+  </view>
+  <view style="width: 100%;height: 1rpx;background-color: #888888;margin-top: 30rpx;margin-bottom:30rpx;"></view>
+  <view class="three">
+    <view style="margin-left: 20rpx;">体检中：</view>
+    <view style="margin-left: 20rpx;color: #888888;margin-top: 20rpx;">1、需空腹检查的项目为抽血、腹部B超、数字胃肠，胃镜及其它标注的体检项目。</view>
+    <view style="margin-left: 20rpx;color: #888888;margin-top: 20rpx;">2、做膀胱、子宫、附件B超时请勿排尿，如无尿需饮水至膀胱充盈。做妇科检查前应排空尿。</view>
+    <view style="margin-left: 20rpx;color: #888888;margin-top: 20rpx;">3、未婚女性不做妇科检查；怀孕的女性请预先告知医护人员,不安排做放射及其他有影响的检查。
+    </view>
+    <view style="margin-left: 20rpx;color: #888888;margin-top: 20rpx;">4、做放射线检查前,请您除去身上佩戴的金银、玉器等饰物。</view>
+    <view style="margin-left: 20rpx;color: #888888;margin-top: 20rpx;">5、核磁共振检查，应禁止佩带首饰、手表、传呼、手机等金属物品，磁卡也不应带入检查室，以防消磁。
+    </view>
+  </view>
+  <view style="width: 100%;height: 1rpx;background-color: #888888;margin-top: 30rpx;margin-bottom: 30rpx;"></view>
+  <view class="four">
+    <view style="margin-left: 20rpx;">体检后：</view>
+    <view style="margin-left: 20rpx;color: #888888;margin-top: 20rpx;">1、全部项目完毕后请您务必将体检单交到前台。</view>
+    <view style="margin-left: 20rpx;color: #888888;margin-top: 20rpx;">2、请您认真听取医生的建议,及时复查.随诊或进一步检查治疗。</view>
+    <view style="margin-left: 20rpx;color: #888888;margin-top: 20rpx;">3、例假期间不宜做妇科、尿液检查。</view>
+  </view>
+</view>
